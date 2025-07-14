@@ -4,8 +4,8 @@ public class Serializer {
 
     public static void serialize(Object object, String outPath) throws IOException {
         try (
-            FileOutputStream fileOut = new FileOutputStream(outPath);
-            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+                FileOutputStream fileOut = new FileOutputStream(outPath);
+                ObjectOutputStream out = new ObjectOutputStream(fileOut);
         ) {
             out.writeObject(object);
         }
@@ -16,10 +16,10 @@ public class Serializer {
         try (
                 FileInputStream fileIn = new FileInputStream(inPath);
                 ObjectInputStream in = new ObjectInputStream(fileIn);
-                ) {
+        ) {
             object = in.readObject();
         }
         return object;
     }
 
-    }
+}

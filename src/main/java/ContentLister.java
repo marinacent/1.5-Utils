@@ -16,7 +16,7 @@ public class ContentLister {
             if (files != null) {
                 Arrays.sort(files, (f1, f2) -> f1.getName().compareToIgnoreCase(f2.getName()));
                 for (File file : files) {
-                    System.out.println(file);
+                    System.out.println(file.getName());
                 }
             }
         }

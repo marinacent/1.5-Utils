@@ -23,12 +23,24 @@ public class ContentLister {
         return files;
     }
 
+    public static void listRecursively(File dir) throws IOException {
+        // handle exceptions
+        // print --> D/F + last modified + indents¿?¿??¿?¿¿??¿?¿
+        File[] elements = listDirContent(dir.getPath());
+        for (File element : elements) {
+            System.out.println(element);
+            if (element.isDirectory()) {
+                listRecursively(element);
+            }
+        }
+
+    }
+
     public static void listRecursively(File dir, BufferedWriter writer) throws IOException {
         // handle exceptions
         // print --> D/F + last modified + indents¿?¿??¿?¿¿??¿?¿
         File[] elements = listDirContent(dir.getPath());
         for (File element : elements) {
-            // System.out.println(element);
             writer.write(element.getName());
             writer.newLine();
             if (element.isDirectory()) {
@@ -38,14 +50,22 @@ public class ContentLister {
 
     }
 
-    public static void listDirTree(String dirPath, String outPath) throws IOException {
-    // TO DO: handle exception!
-    File dir = new File(dirPath);
-    try (BufferedWriter writer = new BufferedWriter(new FileWriter(outPath))) {
+    public static void listDirTree(String dirPath) throws IOException {
+        // TO DO: handle exception!
+        File dir = new File(dirPath);
         if (dir.exists() && dir.isDirectory()) {
-            listRecursively(dir, writer);
+            listRecursively(dir);
         }
     }
-}
+
+    public static void listDirTree(String dirPath, String outPath) throws IOException {
+        // TO DO: handle exception!
+        File dir = new File(dirPath);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(outPath))) {
+            if (dir.exists() && dir.isDirectory()) {
+                listRecursively(dir, writer);
+            }
+        }
+    }
 
 }

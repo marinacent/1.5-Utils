@@ -6,6 +6,12 @@ public class Main {
         String outPath = "src/output.txt";
         ContentLister.listDirContent(dirPath);
         try {
+            ContentLister.listDirTree(dirPath);
+        } catch (IOException e) {
+            System.out.println("Something went wrong unfortunately *.*");
+        }
+        
+        try {
             ContentLister.listDirTree(dirPath, outPath);
         } catch (IOException e) {
             System.out.println("Something went wrong unfortunately *.*");

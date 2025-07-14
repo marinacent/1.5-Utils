@@ -1,9 +1,0 @@
-main
-java
-ContentLister.java
-Main.java
-TxtProcessor.java
-resources
-output.txt
-test
-java

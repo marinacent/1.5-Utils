@@ -1,7 +1,4 @@
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 
 public class Serializer {
 
@@ -11,6 +8,15 @@ public class Serializer {
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
         ) {
             out.writeObject(object);
+        }
+    }
+
+    public static void deserialize(Object nullObject, String inPath) throws IOException, ClassNotFoundException {
+        try (
+                FileInputStream fileIn = new FileInputStream(inPath);
+                ObjectInputStream in = new ObjectInputStream(fileIn);
+                ) {
+            nullObject = in.readObject();
         }
     }
 

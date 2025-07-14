@@ -1,4 +1,7 @@
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Arrays;
 
 public class ContentLister {
@@ -18,27 +21,30 @@ public class ContentLister {
         }
     }
 
-    public static void listRecursively(File dir) {
+    public static void listRecursively(File dir, BufferedWriter writer) throws IOException {
         // handle exceptions
         // print --> D/F + last modified + indents¿?¿??¿?¿¿??¿?¿
         File[] elements = dir.listFiles();
         if (elements != null) {
             Arrays.sort(elements, (f1, f2) -> f1.getName().compareToIgnoreCase(f2.getName()));
             for (File element: elements) {
-                System.out.println(element);
+                // System.out.println(element);
+                writer.write(element.toString());
                 if (element.isDirectory()) {
-                    listRecursively(element);
+                    listRecursively(element, writer);
                 }
             }
 
         }
     }
 
-    public static void listDirTree(String dirPath) {
+    public static void listDirTree(String dirPath, String outPath) throws IOException {
         // TO DO: handle exception!
         File dir = new File(dirPath);
-        if (dir.exists() && dir.isDirectory()) {
-            listRecursively(dir);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(outPath, true))) {
+            if (dir.exists() && dir.isDirectory()) {
+                listRecursively(dir, writer);
+            }
         }
     }
 

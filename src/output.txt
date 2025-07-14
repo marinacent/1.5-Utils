@@ -1,0 +1,1 @@
+src/mainsrc/main/javasrc/main/java/ContentLister.javasrc/main/java/Main.javasrc/main/java/TxtProcessor.javasrc/main/resourcessrc/output.txtsrc/testsrc/test/java

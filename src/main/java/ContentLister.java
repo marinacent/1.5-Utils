@@ -30,6 +30,7 @@ public class ContentLister {
             for (File element: elements) {
                 // System.out.println(element);
                 writer.write(element.toString());
+                writer.newLine();
                 if (element.isDirectory()) {
                     listRecursively(element, writer);
                 }
@@ -41,7 +42,7 @@ public class ContentLister {
     public static void listDirTree(String dirPath, String outPath) throws IOException {
         // TO DO: handle exception!
         File dir = new File(dirPath);
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(outPath, true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(outPath))) {
             if (dir.exists() && dir.isDirectory()) {
                 listRecursively(dir, writer);
             }

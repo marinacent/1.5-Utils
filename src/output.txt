@@ -1,1 +1,9 @@
-src/mainsrc/main/javasrc/main/java/ContentLister.javasrc/main/java/Main.javasrc/main/java/TxtProcessor.javasrc/main/resourcessrc/output.txtsrc/testsrc/test/java
+src/mainsrc/main/javasrc/main/java/ContentLister.javasrc/main/java/Main.javasrc/main/java/TxtProcessor.javasrc/main/resourcessrc/output.txtsrc/testsrc/test/javasrc/main
+src/main/java
+src/main/java/ContentLister.java
+src/main/java/Main.java
+src/main/java/TxtProcessor.java
+src/main/resources
+src/output.txt
+src/test
+src/test/java

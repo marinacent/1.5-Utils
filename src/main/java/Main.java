@@ -1,10 +1,12 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
         String dirPath = "src";
         String outPath = "src" + File.separator + "data" + File.separator + "output.txt";
+        String txtFile = "src" + File.separator + "data" + File.separator + "poem.txt";
 
         ContentLister.listDirContent(dirPath);
 
@@ -20,7 +22,11 @@ public class Main {
             System.out.println("Something went wrong unfortunately *.*");
         }
 
-
+        try {
+            TxtProcessor.printFromTxt(txtFile);
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
 
 
     }

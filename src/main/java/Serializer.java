@@ -11,13 +11,15 @@ public class Serializer {
         }
     }
 
-    public static void deserialize(Object nullObject, String inPath) throws IOException, ClassNotFoundException {
+    public static Object deserialize(String inPath) throws IOException, ClassNotFoundException {
+        Object object = null;
         try (
                 FileInputStream fileIn = new FileInputStream(inPath);
                 ObjectInputStream in = new ObjectInputStream(fileIn);
                 ) {
-            nullObject = in.readObject();
+            object = in.readObject();
         }
+        return object;
     }
 
     }

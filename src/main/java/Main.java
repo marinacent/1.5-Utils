@@ -6,7 +6,12 @@ public class Main {
     public static void main(String[] args) {
         String dirPath = "src";
         String outPath = "src" + File.separator + "data" + File.separator + "output.txt";
-        String txtFile = "src" + File.separator + "data" + File.separator + "poem.txt";
+        String txtFilePath = "src" + File.separator + "data" + File.separator + "poem.txt";
+        String personPath = "src" + File.separator + "data" + File.separator + "person.ser";
+
+        Person sophia = new Person("Sophia Garcia", 45);
+        Object garcia = null;
+
 
         ContentLister.listDirContent(dirPath);
 
@@ -23,9 +28,25 @@ public class Main {
         }
 
         try {
-            TxtProcessor.printFromTxt(txtFile);
+            TxtProcessor.printFromTxt(txtFilePath);
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
+        }
+
+        try {
+            Serializer.serialize(sophia, personPath);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            garcia = (Person) Serializer.deserialize(personPath);
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
+        if (garcia != null) {
+            System.out.println(garcia.toString());
         }
 
 

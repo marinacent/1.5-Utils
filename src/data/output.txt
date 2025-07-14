@@ -1,10 +1,13 @@
 data
 output.txt
+person.ser
 poem.txt
 main
 java
 ContentLister.java
 Main.java
+Person.java
+Serializer.java
 TxtProcessor.java
 resources
 test

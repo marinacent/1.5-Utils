@@ -4,9 +4,9 @@ public class Person implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String name;
-    private String age;
+    private int age;
 
-    public Person(String age, String name) {
+    public Person(String name, int age) {
         this.age = age;
         this.name = name;
     }
@@ -15,7 +15,7 @@ public class Person implements Serializable {
         return name;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 

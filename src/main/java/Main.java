@@ -12,8 +12,11 @@ public class Main {
         Person sophia = new Person("Sophia Garcia", 45);
         Object garcia = null;
 
-
-        ContentLister.listDirContent(dirPath);
+        try {
+            ContentLister.listDirContent(dirPath);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
 
         try {
             ContentLister.listDirTree(dirPath);

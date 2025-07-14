@@ -1,14 +1,10 @@
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Arrays;
 
 public class ContentLister {
     private String dirPath;
 
-    public static File[] listDirContent(String dirPath) {
-        // TO DO: THROW APPROPRIATE EXCEPTIONS! ** check if statements
+    public static File[] listDirContent(String dirPath) throws IOException {
         File dir = new File(dirPath);
         File[] files = null;
         if (dir.exists() && dir.isDirectory()) {
@@ -18,7 +14,11 @@ public class ContentLister {
                 for (File file : files) {
                     System.out.println(file.getName());
                 }
+            } else {
+                throw new IOException("Couldn't access directory contents");
             }
+        } else {
+            throw new FileNotFoundException("File doesn't exist or isn't a directory");
         }
         return files;
     }

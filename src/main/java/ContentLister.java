@@ -1,5 +1,8 @@
 import java.io.*;
+import java.nio.file.NotDirectoryException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 public class ContentLister {
     private String dirPath;
@@ -11,9 +14,6 @@ public class ContentLister {
             files = dir.listFiles();
             if (files != null) {
                 Arrays.sort(files, (f1, f2) -> f1.getName().compareToIgnoreCase(f2.getName()));
-                for (File file : files) {
-                    System.out.println(file.getName());
-                }
             } else {
                 throw new IOException("Couldn't access directory contents");
             }
@@ -23,28 +23,25 @@ public class ContentLister {
         return files;
     }
 
-    public static void listRecursively(File dir) throws IOException {
-        // handle exceptions
-        // print --> D/F + last modified + indents¿?¿??¿?¿¿??¿?¿
+    public static void listRecursively(File dir, int level) throws IOException {
         File[] elements = listDirContent(dir.getPath());
         for (File element : elements) {
-            System.out.println(element);
+            System.out.println(printDirElement(element, level));
             if (element.isDirectory()) {
-                listRecursively(element);
+                listRecursively(element, level + 1);
             }
         }
 
     }
 
-    public static void listRecursively(File dir, BufferedWriter writer) throws IOException {
+    public static void listRecursively(File dir, BufferedWriter writer, int level) throws IOException {
         // handle exceptions
-        // print --> D/F + last modified + indents¿?¿??¿?¿¿??¿?¿
         File[] elements = listDirContent(dir.getPath());
         for (File element : elements) {
-            writer.write(element.getName());
+            writer.write(printDirElement(element, level));
             writer.newLine();
             if (element.isDirectory()) {
-                listRecursively(element, writer);
+                listRecursively(element, writer, level + 1);
             }
         }
 
@@ -54,7 +51,7 @@ public class ContentLister {
         // TO DO: handle exception!
         File dir = new File(dirPath);
         if (dir.exists() && dir.isDirectory()) {
-            listRecursively(dir);
+            listRecursively(dir, 0);
         }
     }
 
@@ -63,9 +60,18 @@ public class ContentLister {
         File dir = new File(dirPath);
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(outPath))) {
             if (dir.exists() && dir.isDirectory()) {
-                listRecursively(dir, writer);
+                listRecursively(dir, writer, 0);
             }
         }
+    }
+
+    public static String printDirElement(File element, int level) {
+        String type = element.isDirectory() ? " (D)" : " (F)";
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String modifiedDate = dateFormat.format(new Date(element.lastModified()));
+        String indent = "  ".repeat(level);
+
+        return indent + element.getName() + type + "-- Last modified: " + modifiedDate;
     }
 
 }

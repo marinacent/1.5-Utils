@@ -13,7 +13,9 @@ public class Main {
         Object garcia = null;
 
         try {
-            ContentLister.listDirContent(dirPath);
+            for (File file : ContentLister.listDirContent(dirPath)) {
+                System.out.println(file.getName());
+            }
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }

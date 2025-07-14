@@ -29,7 +29,7 @@ public class ContentLister {
             Arrays.sort(elements, (f1, f2) -> f1.getName().compareToIgnoreCase(f2.getName()));
             for (File element: elements) {
                 // System.out.println(element);
-                writer.write(element.toString());
+                writer.write(element.getName());
                 writer.newLine();
                 if (element.isDirectory()) {
                     listRecursively(element, writer);

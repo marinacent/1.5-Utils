@@ -23,13 +23,13 @@ public class Main {
         try {
             ContentLister.listDirTree(dirPath);
         } catch (IOException e) {
-            System.out.println("Something went wrong unfortunately *.*");
+            System.out.println(e.getMessage());
         }
 
         try {
             ContentLister.listDirTree(dirPath, outPath);
         } catch (IOException e) {
-            System.out.println("Something went wrong unfortunately *.*");
+            System.out.println(e.getMessage());
         }
 
         try {

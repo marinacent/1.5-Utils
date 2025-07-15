@@ -11,9 +11,10 @@ public class Main {
 //        String personPath = "src" + File.separator + "data" + File.separator + "person.ser";
 
         String configPath = "config.properties";
-        Optional<ConfigLoader> config = ConfigLoader.load(configPath);
+        Optional<ConfigLoader> configOptional = ConfigLoader.load(configPath);
 
-        if (config.isPresent()) {
+        if (configOptional.isPresent()) {
+            ConfigLoader config = configOptional.get();
             String dirPath = config.getProperty("dirPath");
             String outPath = config.getProperty("outPath");
             String txtFilePath = config.getProperty("txtFilePath");

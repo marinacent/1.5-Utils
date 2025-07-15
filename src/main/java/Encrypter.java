@@ -9,23 +9,21 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
 public class Encrypter {
-    private KeyGenerator keyGen;
-    private SecretKey secretKey;
-    private byte[] ivBytes;
+    private final SecretKey secretKey;
+    private final byte[] ivBytes;
     private static final SecureRandom random = new SecureRandom();
-    private IvParameterSpec ivParameterSpec;
-    private Cipher cipher;
+    private final Cipher cipher;
 
     public Encrypter() throws NoSuchAlgorithmException, NoSuchPaddingException,
             InvalidAlgorithmParameterException, InvalidKeyException {
 
-        this.keyGen = KeyGenerator.getInstance("AES");
+        KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         keyGen.init(128);
         this.secretKey = keyGen.generateKey();
 
         this.ivBytes = new byte[16];
         random.nextBytes(ivBytes);
-        this.ivParameterSpec = new IvParameterSpec(ivBytes);
+        IvParameterSpec ivParameterSpec = new IvParameterSpec(ivBytes);
 
         this.cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         cipher.init(Cipher.ENCRYPT_MODE, secretKey, ivParameterSpec);

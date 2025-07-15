@@ -32,4 +32,8 @@ public class Decrypter {
         byte[] encryptedData = Files.readAllBytes(Paths.get(inPath));
         return cipher.doFinal(encryptedData);
     }
+
+    public void writeDecryptedFile(byte[] decriptedData, String outPath) throws IOException {
+        Files.write(Paths.get(outPath), decriptedData);
+    }
 }

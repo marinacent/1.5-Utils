@@ -65,6 +65,11 @@ public class Main {
                         System.out.println(garcia.toString());
                     }
 
+                    EncryptedFileSaver.saveEncryptedFile(outPath, encryptedDataPath,
+                            secretKeyPath, ivBytesPath);
+                    DecriptedFileSaver.saveDecriptedFile(encryptedDataPath, decryptedDataPath,
+                            secretKeyPath,ivBytesPath);
+
 
                 },
                 () -> {

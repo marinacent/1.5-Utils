@@ -18,6 +18,10 @@ public class Main {
                     String outPath = config.getProperty("outPath");
                     String txtFilePath = config.getProperty("txtFilePath");
                     String personPath = config.getProperty("personPath");
+                    String encryptedDataPath = config.getProperty("encryptedDataPath");
+                    String secretKeyPath = config.getProperty("secretKeyPath");
+                    String ivBytesPath = config.getProperty("ivBytesPath");
+                    String decryptedDataPath = config.getProperty("decryptedDataPath");
 
                     try {
                         for (File file : ContentLister.listDirContent(dirPath)) {

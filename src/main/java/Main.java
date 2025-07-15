@@ -10,13 +10,7 @@ public class Main {
 //        String personPath = "src" + File.separator + "data" + File.separator + "person.ser";
 
         String configPath = "config.properties";
-        ConfigLoader config = null;
-
-        try {
-            config = new ConfigLoader(configPath);
-        } catch (IOException e){
-            System.out.println(e.getMessage());
-        }
+        ConfigLoader config = new ConfigLoader(configPath);
 
 
         String dirPath = config.getProperty("dirPath");

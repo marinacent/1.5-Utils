@@ -22,6 +22,10 @@ public class Main {
                     String secretKeyPath = config.getProperty("secretKeyPath");
                     String ivBytesPath = config.getProperty("ivBytesPath");
                     String decryptedDataPath = config.getProperty("decryptedDataPath");
+                    String personEncryptedDataPath = config.getProperty("personEncryptedDataPath");
+                    String personSecretKeyPath = config.getProperty("personSecretKeyPath");
+                    String personIvBytesPath = config.getProperty("personIvBytesPath");
+                    String personDecryptedDataPath = config.getProperty("personDecryptedDataPath");
 
                     try {
                         for (File file : ContentLister.listDirContent(dirPath)) {
@@ -70,6 +74,10 @@ public class Main {
                     DecriptedFileSaver.saveDecriptedFile(encryptedDataPath, decryptedDataPath,
                             secretKeyPath,ivBytesPath);
 
+                    EncryptedFileSaver.saveEncryptedFile(personPath, personEncryptedDataPath,
+                            personSecretKeyPath, personIvBytesPath);
+                    DecriptedFileSaver.saveDecriptedFile(personEncryptedDataPath, personDecryptedDataPath,
+                            personSecretKeyPath,personIvBytesPath);
 
                 },
                 () -> {

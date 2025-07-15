@@ -4,13 +4,27 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
-        String dirPath = "src";
-        String outPath = "src" + File.separator + "data" + File.separator + "output.txt";
-        String txtFilePath = "src" + File.separator + "data" + File.separator + "poem.txt";
-        String personPath = "src" + File.separator + "data" + File.separator + "person.ser";
+//        String dirPath = "src";
+//        String outPath = "src" + File.separator + "data" + File.separator + "output.txt";
+//        String txtFilePath = "src" + File.separator + "data" + File.separator + "poem.txt";
+//        String personPath = "src" + File.separator + "data" + File.separator + "person.ser";
+
+        String configPath = "src/resources/config.properties";
+        try {
+            ConfigLoader config = new ConfigLoader(configPath);
+        } catch (IOException e){
+            System.out.println(e.getMessage());
+        }
+
+
+        String dirPath = config.getProperty("dirPath");
+        String outPath = config.getProperty("outPath");
+        String txtFilePath = config.getProperty("txtFilePath");
+        String personPath = config.getProperty("personPath");
 
         Person sophia = new Person("Sophia Garcia", 45);
         Object garcia = null;
+
 
         try {
             for (File file : ContentLister.listDirContent(dirPath)) {

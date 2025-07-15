@@ -9,9 +9,11 @@ public class Main {
 //        String txtFilePath = "src" + File.separator + "data" + File.separator + "poem.txt";
 //        String personPath = "src" + File.separator + "data" + File.separator + "person.ser";
 
-        String configPath = "src/resources/config.properties";
+        String configPath = "config.properties";
+        ConfigLoader config = null;
+
         try {
-            ConfigLoader config = new ConfigLoader(configPath);
+            config = new ConfigLoader(configPath);
         } catch (IOException e){
             System.out.println(e.getMessage());
         }

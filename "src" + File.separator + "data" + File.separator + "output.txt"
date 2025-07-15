@@ -1,0 +1,16 @@
+data (D)-- Last modified: 2025-07-14 18:49:05
+  output.txt (F)-- Last modified: 2025-07-15 10:39:03
+  person.ser (F)-- Last modified: 2025-07-15 10:39:03
+  poem.txt (F)-- Last modified: 2025-07-14 18:24:51
+main (D)-- Last modified: 2025-07-14 15:29:46
+  java (D)-- Last modified: 2025-07-15 11:10:42
+    ConfigLoader.java (F)-- Last modified: 2025-07-15 11:03:48
+    ContentLister.java (F)-- Last modified: 2025-07-14 19:50:17
+    Main.java (F)-- Last modified: 2025-07-15 11:10:42
+    Person.java (F)-- Last modified: 2025-07-14 18:49:01
+    Serializer.java (F)-- Last modified: 2025-07-14 19:50:17
+    TxtProcessor.java (F)-- Last modified: 2025-07-14 18:21:42
+  resources (D)-- Last modified: 2025-07-15 10:44:09
+    config.properties (F)-- Last modified: 2025-07-15 10:45:40
+test (D)-- Last modified: 2025-07-14 15:29:46
+  java (D)-- Last modified: 2025-07-14 15:29:46

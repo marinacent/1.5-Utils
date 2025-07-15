@@ -8,7 +8,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
-public class Encryptor {
+public class Encrypter {
     private KeyGenerator keyGen;
     private SecretKey secretKey;
     private byte[] ivBytes;
@@ -16,7 +16,9 @@ public class Encryptor {
     private IvParameterSpec ivParameterSpec;
     private Cipher cipher;
 
-    public Encryptor() throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, InvalidKeyException {
+    public Encrypter() throws NoSuchAlgorithmException, NoSuchPaddingException,
+            InvalidAlgorithmParameterException, InvalidKeyException {
+
         this.keyGen = KeyGenerator.getInstance("AES");
         keyGen.init(128);
         this.secretKey = keyGen.generateKey();
@@ -40,6 +42,8 @@ public class Encryptor {
         Files.write(Paths.get(keyPath), secretKey.getEncoded());
         Files.write(Paths.get(ivPath), ivBytes);
     }
+
+
 
 
 

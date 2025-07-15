@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Optional;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,13 +11,17 @@ public class Main {
 //        String personPath = "src" + File.separator + "data" + File.separator + "person.ser";
 
         String configPath = "config.properties";
-        ConfigLoader config = new ConfigLoader(configPath);
+        Optional<ConfigLoader> config = ConfigLoader.load(configPath);
 
-
-        String dirPath = config.getProperty("dirPath");
-        String outPath = config.getProperty("outPath");
-        String txtFilePath = config.getProperty("txtFilePath");
-        String personPath = config.getProperty("personPath");
+        if (config.isPresent()) {
+            String dirPath = config.getProperty("dirPath");
+            String outPath = config.getProperty("outPath");
+            String txtFilePath = config.getProperty("txtFilePath");
+            String personPath = config.getProperty("personPath");
+        } else {
+            System.out.println("Couldn't load config.properties file. Exiting.");
+            System.exit(1);
+        }
 
         Person sophia = new Person("Sophia Garcia", 45);
         Object garcia = null;

@@ -11,7 +11,7 @@ public class ContentLister {
 
     public static File[] listDirContent(String dirPath) throws IOException {
         File dir = new File(dirPath);
-        File[] files = null;
+        File[] files;
         if (dir.exists() && dir.isDirectory()) {
             files = dir.listFiles();
             if (files != null) {

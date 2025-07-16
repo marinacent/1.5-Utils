@@ -14,18 +14,30 @@ public class Main {
 
         configOptional.ifPresentOrElse(
                 config -> {
-                    String dirPath = config.getProperty("dirPath");
-                    String outPath = config.getProperty("outPath");
-                    String txtFilePath = config.getProperty("txtFilePath");
-                    String personPath = config.getProperty("personPath");
-                    String encryptedDataPath = config.getProperty("encryptedDataPath");
-                    String secretKeyPath = config.getProperty("secretKeyPath");
-                    String ivBytesPath = config.getProperty("ivBytesPath");
-                    String decryptedDataPath = config.getProperty("decryptedDataPath");
-                    String personEncryptedDataPath = config.getProperty("personEncryptedDataPath");
-                    String personSecretKeyPath = config.getProperty("personSecretKeyPath");
-                    String personIvBytesPath = config.getProperty("personIvBytesPath");
-                    String personDecryptedDataPath = config.getProperty("personDecryptedDataPath");
+                    String dirPath =
+                            config.getProperty("dirPath").replace("/", File.separator);
+                    String outPath =
+                            config.getProperty("outPath").replace("/", File.separator);
+                    String txtFilePath =
+                            config.getProperty("txtFilePath").replace("/", File.separator);
+                    String personPath =
+                            config.getProperty("personPath").replace("/", File.separator);
+                    String encryptedDataPath =
+                            config.getProperty("encryptedDataPath").replace("/", File.separator);
+                    String secretKeyPath =
+                            config.getProperty("secretKeyPath").replace("/", File.separator);
+                    String ivBytesPath =
+                            config.getProperty("ivBytesPath").replace("/", File.separator);
+                    String decryptedDataPath =
+                            config.getProperty("decryptedDataPath").replace("/", File.separator);
+                    String personEncryptedDataPath =
+                            config.getProperty("personEncryptedDataPath").replace("/", File.separator);
+                    String personSecretKeyPath =
+                            config.getProperty("personSecretKeyPath").replace("/", File.separator);
+                    String personIvBytesPath =
+                            config.getProperty("personIvBytesPath").replace("/", File.separator);
+                    String personDecryptedDataPath =
+                            config.getProperty("personDecryptedDataPath").replace("/", File.separator);
 
                     try {
                         for (File file : ContentLister.listDirContent(dirPath)) {

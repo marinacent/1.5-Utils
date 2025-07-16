@@ -14,30 +14,18 @@ public class Main {
 
         configOptional.ifPresentOrElse(
                 config -> {
-                    String dirPath =
-                            config.getProperty("dirPath").replace("/", File.separator);
-                    String outPath =
-                            config.getProperty("outPath").replace("/", File.separator);
-                    String txtFilePath =
-                            config.getProperty("txtFilePath").replace("/", File.separator);
-                    String personPath =
-                            config.getProperty("personPath").replace("/", File.separator);
-                    String encryptedDataPath =
-                            config.getProperty("encryptedDataPath").replace("/", File.separator);
-                    String secretKeyPath =
-                            config.getProperty("secretKeyPath").replace("/", File.separator);
-                    String ivBytesPath =
-                            config.getProperty("ivBytesPath").replace("/", File.separator);
-                    String decryptedDataPath =
-                            config.getProperty("decryptedDataPath").replace("/", File.separator);
-                    String personEncryptedDataPath =
-                            config.getProperty("personEncryptedDataPath").replace("/", File.separator);
-                    String personSecretKeyPath =
-                            config.getProperty("personSecretKeyPath").replace("/", File.separator);
-                    String personIvBytesPath =
-                            config.getProperty("personIvBytesPath").replace("/", File.separator);
-                    String personDecryptedDataPath =
-                            config.getProperty("personDecryptedDataPath").replace("/", File.separator);
+                    String dirPath = config.getPath("dirPath");
+                    String outPath = config.getPath("outPath");
+                    String txtFilePath = config.getPath("txtFilePath");
+                    String personPath = config.getPath("personPath");
+                    String encryptedDataPath = config.getPath("encryptedDataPath");
+                    String secretKeyPath = config.getPath("secretKeyPath");
+                    String ivBytesPath = config.getPath("ivBytesPath");
+                    String decryptedDataPath = config.getPath("decryptedDataPath");
+                    String personEncryptedDataPath = config.getPath("personEncryptedDataPath");
+                    String personSecretKeyPath = config.getPath("personSecretKeyPath");
+                    String personIvBytesPath = config.getPath("personIvBytesPath");
+                    String personDecryptedDataPath = config.getPath("personDecryptedDataPath");
 
                     try {
                         for (File file : ContentLister.listDirContent(dirPath)) {

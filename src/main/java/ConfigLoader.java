@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -39,8 +40,9 @@ public class ConfigLoader {
 
     }
 
-    public String getProperty(String key) {
-        return properties.getProperty(key);
-        }
+    public String getPath(String key) {
+        String path = properties.getProperty(key);
+        return path.replace("/", File.separator);
+    }
 
     }

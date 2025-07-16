@@ -7,7 +7,6 @@ import java.util.Arrays;
 import java.util.Date;
 
 public class ContentLister {
-    private String dirPath;
 
     public static File[] listDirContent(String dirPath) throws IOException {
         File dir = new File(dirPath);

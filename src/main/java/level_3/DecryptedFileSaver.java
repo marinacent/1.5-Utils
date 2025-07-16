@@ -1,8 +1,8 @@
 package level_3;
 
-public class DecriptedFileSaver {
+public class DecryptedFileSaver {
 
-    public static void saveDecriptedFile(String inPath, String outPath, String keyPath, String ivPath) {
+    public static void saveDecryptedFile(String inPath, String outPath, String keyPath, String ivPath) {
         try {
             Decrypter decrypter = new Decrypter(keyPath, ivPath);
             byte[] decryptedData = decrypter.decrypt(inPath);

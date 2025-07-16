@@ -3,7 +3,7 @@ import level_1.Person;
 import level_1.Serializer;
 import level_1.TxtProcessor;
 import level_2.ConfigLoader;
-import level_3.DecriptedFileSaver;
+import level_3.DecryptedFileSaver;
 import level_3.EncryptedFileSaver;
 
 import java.io.File;
@@ -58,13 +58,13 @@ public class Main {
 
                     EncryptedFileSaver.saveEncryptedFile(outPath, encryptedDataPath,
                             secretKeyPath, ivBytesPath);
-                    DecriptedFileSaver.saveDecriptedFile(encryptedDataPath, decryptedDataPath,
-                            secretKeyPath,ivBytesPath);
+                    DecryptedFileSaver.saveDecryptedFile(encryptedDataPath, decryptedDataPath,
+                            secretKeyPath, ivBytesPath);
 
                     EncryptedFileSaver.saveEncryptedFile(personPath, personEncryptedDataPath,
                             personSecretKeyPath, personIvBytesPath);
-                    DecriptedFileSaver.saveDecriptedFile(personEncryptedDataPath, personDecryptedDataPath,
-                            personSecretKeyPath,personIvBytesPath);
+                    DecryptedFileSaver.saveDecryptedFile(personEncryptedDataPath, personDecryptedDataPath,
+                            personSecretKeyPath, personIvBytesPath);
 
                 },
                 () -> {

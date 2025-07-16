@@ -27,19 +27,6 @@ public class ConfigLoader {
         }
     }
 
-    public ConfigLoader(String fileName) throws IOException {
-        this.properties = new Properties();
-
-        try (InputStream input = getClass().getClassLoader().getResourceAsStream(fileName)) {
-            if (input == null) {
-                throw new FileNotFoundException("Couldn't access " + fileName);
-            }
-
-            properties.load(input);
-        }
-
-    }
-
     public String getPath(String key) {
         String path = properties.getProperty(key);
         return path.replace("/", File.separator);

@@ -34,9 +34,9 @@ public class Encrypter {
         return cipher.doFinal(fileAsBytes);
     }
 
-    public void writeEncryptedFile(byte[] encriptedData, String outPath, String keyPath, String ivPath)
+    public void writeEncryptedFile(byte[] encryptedData, String outPath, String keyPath, String ivPath)
             throws IOException {
-        Files.write(Paths.get(outPath), encriptedData);
+        Files.write(Paths.get(outPath), encryptedData);
         Files.write(Paths.get(keyPath), secretKey.getEncoded());
         Files.write(Paths.get(ivPath), ivBytes);
     }

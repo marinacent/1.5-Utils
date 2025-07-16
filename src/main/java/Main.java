@@ -31,42 +31,22 @@ public class Main {
                         for (File file : ContentLister.listDirContent(dirPath)) {
                             System.out.println(file.getName());
                         }
-                    } catch (IOException e) {
-                        System.out.println(e.getMessage());
-                    }
 
-                    try {
                         ContentLister.listDirTree(dirPath);
-                    } catch (IOException e) {
-                        System.out.println(e.getMessage());
-                    }
-
-                    try {
                         ContentLister.listDirTree(dirPath, outPath);
-                    } catch (IOException e) {
-                        System.out.println(e.getMessage());
-                    }
 
-                    try {
                         TxtProcessor.printFromTxt(txtFilePath);
-                    } catch (FileNotFoundException e) {
-                        System.out.println(e.getMessage());
-                    }
 
-                    try {
                         Serializer.serialize(sophia, personPath);
+                        garcia.set((Person) Serializer.deserialize(personPath));
+                        if (garcia.get() != null) {
+                            System.out.println(garcia.toString());
+                        }
+
+                    } catch (ClassNotFoundException e) {
+                        throw new RuntimeException(e);
                     } catch (IOException e) {
                         System.out.println(e.getMessage());
-                    }
-
-                    try {
-                        garcia.set((Person) Serializer.deserialize(personPath));
-                    } catch (IOException | ClassNotFoundException e) {
-                        System.out.println(e.getMessage());
-                    }
-
-                    if (garcia.get() != null) {
-                        System.out.println(garcia.toString());
                     }
 
                     EncryptedFileSaver.saveEncryptedFile(outPath, encryptedDataPath,

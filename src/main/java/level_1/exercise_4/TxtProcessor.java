@@ -1,4 +1,4 @@
-package level_1;
+package level_1.exercise_4;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

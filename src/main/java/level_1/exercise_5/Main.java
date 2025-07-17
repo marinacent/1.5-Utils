@@ -13,7 +13,7 @@ public class Main {
 
         try {
             Serializer.serialize(sophia, PERSON_PATH);
-            garcia = (Person) Serializer.deserialize(PERSON_PATH);
+            garcia = Serializer.deserialize(PERSON_PATH);
         } catch (IOException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }

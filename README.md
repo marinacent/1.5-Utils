@@ -34,7 +34,7 @@ Maven 4.0.0
 
 ## 🛠️ Set up
 
-1. Clone repository: -> ```git clone```
+1. Clone repository: ```git clone```
 2. Access project repository: ```cd 1.5-Utils```
 
 ## ▶️ Run

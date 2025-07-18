@@ -6,7 +6,7 @@
 
 mvn compile
 
-3. Run the following commands to run each one of the Main classes:
+3. Run the following commands to execute each one of the Main classes:
 
 java -cp target/classes level_1.exercise_1.Main
 java -cp target/classes level_1.exercise_2.Main

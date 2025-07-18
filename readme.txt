@@ -1,33 +1,17 @@
-Make sure you're current working directory is 1.5-Utils
+------- RUNNING THE PROJECT FROM THE UNIX SHELL -------
 
-If you are using a Unix shell,
+1. Make sure your current working directory is 1.5-Utils
 
-Run the following commands:
+2. Run the following command to compile the files:
 
-javac -d out src/main/java/*.java
+mvn compile
 
-java -cp out Main
+3. Run the following commands to run each one of the Main classes:
 
-------
-
-If you are using the Windows terminal,
-
--> Run the following commands to compile the Java files:
-
-javac -d out src\main\java\level_1\exercise_1\*.java
-javac -d out src\main\java\level_1\exercise_2\*.java
-javac -d out src\main\java\level_1\exercise_3\*.java
-javac -d out src\main\java\level_1\exercise_4\*.java
-javac -d out src\main\java\level_1\exercise_5\*.java
-javac -d out src\main\java\level_2\*.java
-javac -d out src\main\java\level_3\*.java
-
--> Run the following commands to run the files:
-
-java -cp out level_1.exercise_1.Main
-java -cp out level_1.exercise_2.Main
-java -cp out level_1.exercise_3.Main
-java -cp out level_1.exercise_4.Main
-java -cp out level_1.exercise_5.Main
-java -cp out level_2.Main
-java -cp out level_3.Main
+java -cp target/classes level_1.exercise_1.Main
+java -cp target/classes level_1.exercise_2.Main
+java -cp target/classes level_1.exercise_3.Main
+java -cp target/classes level_1.exercise_4.Main
+java -cp target/classes level_1.exercise_5.Main
+java -cp target/classes level_2.Main
+java -cp target/classes level_3.Main

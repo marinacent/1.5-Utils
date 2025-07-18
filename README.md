@@ -34,9 +34,9 @@ Maven 4.0.0
 
 ## 🛠️ Set up
 
-1. Clone repository: -> git clone
-2. Access project repository: cd 1.5-Utils
+1. Clone repository: -> ```git clone```
+2. Access project repository: ```cd 1.5-Utils```
 
 ## ▶️ Run
 
-Follow the instructions in the *readme.txt* file to compile and run the program.
+Follow the instructions in the *readme.txt* file to compile and run the program from the Unix shell.
